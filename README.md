@@ -3,7 +3,7 @@
 
 **Année Universitaire :** 2026-2027  
 **Module :** Architecture Web Distribuée (ESPRIT)  
-**Enseignante :** Mme Badia Bouhdid  
+
 
 ---
 
@@ -12,57 +12,10 @@
 - **Noms & Prénoms :** Yassine Gharbi, Bachir Habboubi, Chadha Dalhoumi, Dhia Trabelssi  
 - **Classe / Groupe :** 4DAS_I11  
 
----
 
-## 📊 Bilan du TP : Ce qui est bien terminé vs Ce qui reste à faire
 
-### 🟢 Ce qui est BIEN TERMINÉ (Code & Configuration validés)
 
-| Partie du TP | Tâche | Statut | Détails |
-| :--- | :--- | :---: | :--- |
-| **Partie 1 (Étape 1)** | Dépendance Actuator | ✅ Terminé | `spring-boot-starter-actuator` ajouté dans `candidat-service` et `job-service`. |
-| **Partie 1 (Étape 2)** | Endpoints exposés | ✅ Terminé | `health,info,metrics,loggers` exposés, `show-details=always`, `eureka.client.healthcheck.enabled=true`. |
-| **Partie 1 (Étape 2)** | Métadonnées info.* | ✅ Terminé | Infos complètes (nom, version, description, membres d'équipe) configurées dans les `.properties`. |
-| **Partie 1 (Bonus)** | HealthIndicator personnalisé | ✅ Terminé | `CustomCandidatHealthIndicator.java` et `CustomJobHealthIndicator.java` implémentés. |
-| **Partie 2 (Étape 1)** | Santé MySQL pour Job | ✅ Terminé | `spring-boot-starter-jdbc` et `mysql-connector-j` configurés dans `job-service`. |
-| **Partie 4 (Étape 4)** | Réponses analyse métriques | ✅ Terminé | Réponses aux questions sur `COUNT`, `MAX` et `?tag=status:200` rédigées ci-dessous. |
-| **Partie 5 (Tâche 1)** | Meeting Node.js : Route `/health` | ✅ Terminé | Renvoie `{"status": "UP"}` avec code 200. |
-| **Partie 5 (Tâche 1)** | Meeting Node.js : Route `/info` | ✅ Terminé | Lit `name`, `version`, `description` dynamiquement depuis `package.json`. |
-| **Partie 5 (Tâche 1)** | Meeting Node.js : Eureka URLs | ✅ Terminé | `statusPageUrl` (`/info`) et `healthCheckUrl` (`/health`) déclarés dans `eureka-js-client`. |
-| **Partie 5 (Tâche 2)** | Notification Python : `/health` | ✅ Terminé | Route GET `/health` implémentée sous FastAPI. |
-| **Partie 5 (Tâche 2)** | Notification Python : `/info` | ✅ Terminé | Route GET `/info` implémentée avec infos service et équipe. |
-| **Partie 5 (Tâche 2)** | Notification Python : Eureka URLs | ✅ Terminé | `status_page_url` et `health_check_url` déclarés dans `py-eureka-client`. |
 
----
-
-### 🟡 Ce qu'il reste à finaliser / manipuler
-
-1. **Lancement simultané de Candidat et Job avec Meeting et Notification :**
-   - Sur votre dernière capture, Meeting et Notification sont bien enregistrés dans Eureka.
-   - Il vous reste à lancer en même temps `candidat-service` et `job-service` (`java -jar ...` ou via votre IDE) pour voir les 4 services enregistrés simultanément dans Eureka.
-2. **Partie 2 (Étape 2) - Test de panne MySQL (Manipulation à chaud) :**
-   - Arrêter MySQL dans XAMPP/WAMP.
-   - Constater que `http://localhost:8082/actuator/health` passe à `DOWN`.
-   - Observer dans Eureka que `JOB` passe à `DOWN (1)`.
-   - Redémarrer MySQL et vérifier le retour à `UP (1)`.
-3. **Pousser sur GitHub :**
-   - Faire le `git commit` et `git push` sur votre dépôt GitHub d'équipe.
-
----
-
-## 📸 Captures d'écran des Résultats
-
-### 1. Microservice Meeting (Node.js) - Endpoint `/info`
-Capture montrant la route `/info` renvoyant le nom et la version lus depuis `package.json` :
-![Meeting Info](documentation/meeting-info.png)
-
----
-
-### 2. Microservice Notification (Python / FastAPI) - Endpoint `/info`
-Capture montrant la route `/info` avec les métadonnées et les noms des membres de l'équipe :
-![Notification Info](documentation/notification-info.png)
-
----
 
 ### 3. Tableau de bord Eureka avec les instances enregistrées
 Capture du dashboard Eureka (`http://localhost:8761`) montrant les services polyglottes avec statut **UP** et liens directs vers `/info` :
