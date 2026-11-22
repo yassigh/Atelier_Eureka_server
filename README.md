@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TP Architecture Web Distribuée : Observabilité avec Spring Boot Actuator & Services Polyglottes
 
 **Année Universitaire :** 2026-2027  
@@ -111,3 +112,6 @@ Grâce à `eureka.client.healthcheck.enabled=true` et au starter JDBC MySQL conf
 | **Meeting (Instance 1)** | `8083` | [Health](http://localhost:8083/health) | [Info](http://localhost:8083/info) |
 | **Meeting (Instance 2)** | `8086` | [Health](http://localhost:8086/health) | [Info](http://localhost:8086/info) |
 | **Notification** | `8084` | [Health](http://localhost:8084/health) | [Info](http://localhost:8084/info) |
+=======
+# Atelier_Eureka_server
+>>>>>>> 01de20081559d9b0e68118f2ab63adef0f0dd21c
